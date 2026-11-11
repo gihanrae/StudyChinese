@@ -142,6 +142,34 @@ body.tag .c{cursor:copy}
 .wq>div{border:1px solid var(--ln);border-radius:8px;background:linear-gradient(var(--ln),var(--ln)) center/1px 100% no-repeat,linear-gradient(var(--ln),var(--ln)) center/100% 1px no-repeat}
 .wq svg{touch-action:none;display:block}
 .wa{display:flex;gap:6px}
+
+/* compact bar + controls panel */
+.bar{gap:6px 8px;padding:5px 0}
+#q{flex:1 1 120px;max-width:260px;min-width:0}
+#g2{display:none;gap:6px}
+body.game #g2{display:flex}
+#cp{position:absolute;top:100%;left:0;right:0;z-index:8;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 28px rgba(0,0,0,.18);animation:pop2 .22s cubic-bezier(.2,.8,.3,1)}
+#cp[hidden]{display:none}
+#cp .cr #q{flex:1 1 140px;max-width:none}
+.how{border-collapse:collapse;width:100%;color:var(--mut)}
+.how td{padding:3px 0;vertical-align:top}.how td:first-child{color:var(--fg);white-space:nowrap;padding-right:14px;font-weight:600}.how i{font-style:normal;opacity:.7}
+#cp .z{display:flex;align-items:center;gap:8px;color:var(--mut)}#cp .z input{flex:1;width:auto}
+#cp .lg{gap:4px 12px}
+.cr{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#cp #ap{position:static;width:100%;border:0;box-shadow:none;padding:0}
+.ghost{position:fixed!important}
+@media (pointer:coarse){
+ button,#q,#ls,#al,#ac{min-height:40px;font-size:14px;padding:6px 14px}
+ #q{font-size:16px}#ti{font-size:16px}
+ .sw{min-height:40px;gap:8px}.sw i{width:40px;height:22px;border-radius:11px}.sw i::after{width:16px;height:16px;top:3px;left:3px}.sw input:checked+i::after{transform:translateX(18px)}
+ #cp .z input{height:32px}
+ a.gh{padding:8px}a.gh svg{width:22px;height:22px}
+ .lg{font-size:12px}.lg i{width:11px;height:11px}
+ #dock .db{width:176px;gap:6px}#dock .db button{min-height:38px;padding:4px 12px}
+ .tl{font-size:14px}
+ main{padding-bottom:calc(40px*var(--z,1) + 120px + env(safe-area-inset-bottom,0px))}
+ #sv .sr button{min-height:36px}
+}
 </style>
 </head>
 <body>
@@ -314,25 +342,29 @@ body.tag .c{cursor:copy}
 
 <svg id="defs" width="0" height="0" style="position:absolute;left:-9999px" aria-hidden="true"><defs></defs></svg>
 <div class="bar" id="bar">
-  <label class="z"><span>A</span><input type="range" id="z" min="0.6" max="2.5" step="0.05" value="1" aria-label="Zoom"><span style="font-size:16px">A</span></label>
-  <div class="lg" id="lg"></div>
-  <div class="sp"></div>
   <input id="q" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-  <select id="ls" hidden aria-label="Lesson"></select>
-  <label class="sw"><input type="checkbox" id="gm"><i></i>Game</label>
-  <button id="dr" title="What a card shows first">Show: 汉字</button>
-  <button id="wk" aria-pressed="false" title="Only words you had to check">Weak</button>
-  <button id="rs" title="Reset counts and reshuffle" aria-label="Reset">↺</button>
-  <button id="wr" aria-pressed="false" title="Writing practice: tap a card to write it">Write</button>
-  <button id="tn" aria-pressed="false" title="Color pinyin by tone">Tones</button><span class="tl" id="tl2" hidden title="Tone 1 · 2 · 3 · 4 · neutral"><i class="t1">1</i><i class="t2">2</i><i class="t3">3</i><i class="t4">4</i><i class="t5">·</i></span>
+  <button id="mn" aria-expanded="false" aria-controls="cp">Controls</button>
   <button id="tgx" hidden></button>
-  <button id="ad" title="Add words, tag lessons, backup" aria-label="Add words">+</button>
-  <a class="gh" href="https://github.com/gihanrae/StudyChinese" target="_blank" rel="noopener" title="StudyChinese on GitHub" aria-label="StudyChinese on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
-  <div id="ap" hidden>
+  <div id="g2"><button id="dr" title="What a card shows first">Show: 汉字</button><button id="wk" aria-pressed="false" title="Only words you had to check">Weak</button><button id="rs" title="Reset counts and reshuffle" aria-label="Reset">↺</button></div>
+  <div id="cp" hidden>
+    <div class="cr"><select id="ls" hidden aria-label="Lesson"></select><label class="sw"><input type="checkbox" id="gm"><i></i>Game</label></div>
+    <label class="z"><span>A</span><input type="range" id="z" min="0.6" max="2.5" step="0.05" value="1" aria-label="Zoom"><span style="font-size:18px">A</span></label>
+    <div class="lg" id="lg"></div>
+    <div class="cr"><button id="wr" aria-pressed="false" title="Writing practice: tap a card to write it">Write</button><button id="tn" aria-pressed="false" title="Color pinyin by tone">Tones</button><span class="tl" id="tl2" hidden title="Tone 1 · 2 · 3 · 4 · neutral"><i class="t1">1</i><i class="t2">2</i><i class="t3">3</i><i class="t4">4</i><i class="t5">·</i></span><button id="ad" title="Add words, tag lessons, backup" aria-label="Add words">Add &amp; tools</button><a class="gh" href="https://github.com/gihanrae/StudyChinese" target="_blank" rel="noopener" title="StudyChinese on GitHub" aria-label="StudyChinese on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+    <table class="how" aria-label="How to use">
+      <tr><td>Tap / click</td><td>pinyin <i>(phone: + stroke order)</i></td></tr>
+      <tr><td>Hold</td><td>meaning + example</td></tr>
+      <tr><td>Hover <i>(PC)</i></td><td>stroke order</td></tr>
+      <tr><td>Drag card ↓</td><td>add to sentence box</td></tr>
+      <tr><td>Type in box</td><td>hanzi, pinyin or English, then Enter</td></tr>
+      <tr><td>Game</td><td>tap to check; most-checked sink down</td></tr>
+    </table>
+    <div id="ap" hidden>
     <textarea id="at" spellcheck="false" placeholder="汉字 | pinyin | english | example&#10;(one per line — table rows pasted from a sheet work too)"></textarea>
     <div class="r"><select id="ac" aria-label="Category"></select><input id="al" type="number" min="1" placeholder="Lesson" aria-label="Lesson number"></div>
     <div class="r"><button id="ay">Add</button><button id="ex" title="Download your added words as lines for the vocab list">Export</button><button id="ax" title="Remove words added with +">Clear added</button><span id="am"></span></div>
     <div class="r"><input id="tl" type="number" min="1" placeholder="Lesson #" aria-label="Lesson number to tag"><button id="tg" title="Then tap cards to tag them with this lesson">Tag cards</button><button id="bk">Backup</button><button id="rt">Restore</button><input id="rf" type="file" accept=".json" hidden></div>
+  </div>
   </div>
 </div>
 
@@ -730,9 +762,13 @@ $('#ax').addEventListener('click',function(){
  added=[];sset('mv_add','[]');buildLessons();am.textContent='Cleared'});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){ap.hidden=true;sv.hidden=true}});
 document.addEventListener('pointerdown',function(e){
- if(!ap.hidden&&!e.target.closest('#ap,#ad'))ap.hidden=true;
+ if(!cp.hidden&&!e.target.closest('#cp,#mn')){cp.hidden=true;ap.hidden=true;mn.setAttribute('aria-expanded','false')}
  if(!sv.hidden&&!e.target.closest('#sv,#sl'))sv.hidden=true},true);
 
+/* ---- controls panel ---- */
+var cp=$('#cp'),mn=$('#mn');
+function closeCp(){cp.hidden=true;ap.hidden=true;mn.setAttribute('aria-expanded','false')}
+mn.addEventListener('click',function(){var o=cp.hidden;cp.hidden=!o;if(!o)ap.hidden=true;mn.setAttribute('aria-expanded',o?'true':'false')});
 /* ---- tones / weak / modes ---- */
 var tn=$('#tn');
 function setTc(v){document.body.classList.toggle('tc',v);tn.setAttribute('aria-pressed',v?'true':'false');$('#tl2').hidden=!v;sset('mv_tc',v?'1':'0')}
@@ -747,7 +783,7 @@ function setW(v){wmode=v;$('#wr').setAttribute('aria-pressed',v?'true':'false');
 function setTag(v,n){tagmode=v;document.body.classList.toggle('tag',v);var b=$('#tgx');b.hidden=!v;if(v){tagN=n;b.textContent='Tagging lesson '+n+' ✕';setW(false)}}
 $('#wr').addEventListener('click',function(){setW(!wmode)});
 $('#tgx').addEventListener('click',function(){setTag(false)});
-$('#tg').addEventListener('click',function(){var n=+$('#tl').value;if(!n){$('#tl').focus();return}ap.hidden=true;setTag(true,n)});
+$('#tg').addEventListener('click',function(){var n=+$('#tl').value;if(!n){$('#tl').focus();return}closeCp();setTag(true,n)});
 function tagCard(c){var it=c._it;it.l=(it.l===tagN)?0:tagN;Lm[it.k]=it.l;c.dataset.l=it.l||'';sset('mv_l',JSON.stringify(Lm));buildLessons()}
 
 /* ---- writing practice ---- */
@@ -778,7 +814,16 @@ $('#rf').addEventListener('change',function(){
  var f=this.files[0];if(!f)return;var rd=new FileReader();
  rd.onload=function(){try{var o=JSON.parse(rd.result);if(!o||!o.d)throw 0;BK.forEach(function(k){if(typeof o.d[k]==='string')sset(k,o.d[k])});location.reload()}catch(e){am.textContent='Not a valid backup'}};
  rd.readAsText(f);this.value=''});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeWrite();setTag(false)}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeWrite();setTag(false);closeCp()}});
+
+
+/* ---- inputs live in the panel: close it once you have typed / chosen ---- */
+var qt=0;
+function cpBusy(){mn.textContent='Controls'+(($('#q').value||$('#ls').value)?' •':'')}
+$('#q').addEventListener('input',function(){cpBusy();clearTimeout(qt);qt=setTimeout(closeCp,900)});
+$('#q').addEventListener('keydown',function(e){if(e.key==='Enter'){clearTimeout(qt);closeCp()}});
+$('#ls').addEventListener('change',function(){cpBusy();closeCp()});
+$('#gm').addEventListener('change',function(){closeCp()});
 
 /* ---- offline (installable) ---- */
 if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(function(){});
