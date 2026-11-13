@@ -35,6 +35,7 @@ button{font:inherit;color:var(--fg);background:none;border:1px solid var(--ln);b
 button:hover:not(:disabled){border-color:var(--mut)}
 button:disabled{opacity:.4;cursor:default}
 button:focus-visible{outline:2px solid var(--mut);outline-offset:1px}
+a.bt{font:inherit;color:var(--fg);border:1px solid var(--ln);border-radius:6px;padding:2px 8px;text-decoration:none}a.bt:hover{border-color:var(--mut)}a.bt:focus-visible{outline:2px solid var(--mut);outline-offset:1px}
 a.gh{display:inline-flex;align-items:center;color:var(--mut);padding:2px}a.gh:hover{color:var(--fg)}a.gh:focus-visible{outline:2px solid var(--mut);outline-offset:2px;border-radius:4px}a.gh svg{width:16px;height:16px;fill:currentColor}
 #rs{display:none}
 body.game #rs{display:inline-block}
@@ -159,7 +160,7 @@ body.game #g2{display:flex}
 #cp #ap{position:static;width:100%;border:0;box-shadow:none;padding:0}
 .ghost{position:fixed!important}
 @media (pointer:coarse){
- button,#q,#ls,#al,#ac{min-height:40px;font-size:14px;padding:6px 14px}
+ button,a.bt,#q,#ls,#al,#ac{min-height:40px;font-size:14px;padding:6px 14px;display:inline-flex;align-items:center}
  #q{font-size:16px}#ti{font-size:16px}
  .sw{min-height:40px;gap:8px}.sw i{width:40px;height:22px;border-radius:11px}.sw i::after{width:16px;height:16px;top:3px;left:3px}.sw input:checked+i::after{transform:translateX(18px)}
  #cp .z input{height:32px}
@@ -344,6 +345,7 @@ body.game #g2{display:flex}
 <div class="bar" id="bar">
   <input id="q" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
   <button id="mn" aria-expanded="false" aria-controls="cp">Controls</button>
+  <a class="bt" href="story.html">Story</a>
   <button id="tgx" hidden></button>
   <div id="g2"><button id="dr" title="What a card shows first">Show: 汉字</button><button id="wk" aria-pressed="false" title="Only words you had to check">Weak</button><button id="rs" title="Reset counts and reshuffle" aria-label="Reset">↺</button></div>
   <div id="cp" hidden>

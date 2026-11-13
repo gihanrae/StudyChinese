@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>林娜和丁力波 · Story</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#fafaf7">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" media="print" onload="this.media='all'">
+<style>
+:root{--bg:#fafaf7;--fg:#1c1c1a;--mut:#6b6b66;--ln:#e2e0d8;--tl:38%;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#18181a;--fg:#ececea;--mut:#9a9a95;--ln:#2e2e30;--tl:70%;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+body{padding:env(safe-area-inset-top,0) 16px calc(60px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
+.zh{font-family:"LXGW WenKai TC","Kaiti SC",STKaiti,KaiTi,"楷体",serif}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0);z-index:5;background:var(--bg);display:flex;align-items:center;gap:8px;max-width:680px;margin:0 auto;padding:8px 0}
+.bar .sp{flex:1}
+.bar a,button{font:inherit;font-size:12px;color:var(--fg);background:none;border:1px solid var(--ln);border-radius:6px;padding:3px 10px;cursor:pointer;text-decoration:none;display:inline-block}
+.bar a:hover,button:hover{border-color:var(--mut)}
+button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mut);outline-offset:2px}
+@media (pointer:coarse){.bar a,.bar button{min-height:40px;font-size:14px;padding:6px 14px}}
+
+main{max-width:680px;margin:0 auto}
+h1{font-weight:400;font-size:clamp(30px,8vw,44px);line-height:1.2;margin:28px 0 4px}
+.sub{color:var(--mut);margin:0 0 8px}
+h2{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--mut);margin:56px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--ln)}
+
+/* a line: tap to reveal */
+.l{display:block;width:100%;text-align:left;border:0;border-radius:10px;background:none;padding:14px 8px;margin:0 -8px;width:calc(100% + 16px);font-size:inherit;color:inherit;cursor:pointer;-webkit-user-select:text;user-select:text}
+@media (hover:hover){.l:hover{background:color-mix(in srgb,var(--ln) 45%,transparent)}}
+.who{display:block;font-size:12px;color:var(--mut);margin-bottom:2px}
+.t{display:block;font-size:clamp(26px,6.4vw,36px);line-height:1.35}
+.more{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .25s ease,opacity .2s ease,visibility 0s .25s}
+.more>span{display:block;overflow:hidden;min-height:0}
+.l[aria-expanded=true] .more,body.all .more{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .25s ease,opacity .2s ease .05s,visibility 0s}
+.py{display:block;font-size:clamp(15px,3.8vw,18px);padding-top:6px}
+.en{display:block;color:var(--mut);font-size:clamp(14px,3.6vw,16px);padding-top:2px}
+@media (prefers-reduced-motion:reduce){.more,.l[aria-expanded=true] .more,body.all .more{transition:none}}
+
+/* tone colours (same as the word list) */
+body.tc .t1{color:hsl(212 62% var(--tl))}body.tc .t2{color:hsl(140 52% var(--tl))}body.tc .t3{color:hsl(30 70% var(--tl))}body.tc .t4{color:hsl(352 62% var(--tl))}body.tc .t5{color:var(--mut)}
+
+/* drills */
+.d{padding:12px 0;border-bottom:1px solid var(--ln)}
+.d .p{font-size:clamp(22px,5.4vw,28px)}
+.d .w{color:var(--mut);margin-top:4px;font-size:clamp(15px,3.8vw,18px)}
+.d .w s{text-decoration:none;opacity:.5;margin:0 .35em}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     STORY  (edit here)
+     [Scene title]
+     speaker | 汉字 | pinyin | english
+     After a line with only @@ come the drills:  pattern | word · word · word
+     ============================================================ -->
+<script id="story" type="text/plain">
+[场景一 · 开学,餐厅(二层)]
+力波 | 请问,这儿有人吗? | Qǐngwèn, zhèr yǒu rén ma? | Anyone sitting here?
+林娜 | 没有。请坐。 | Méiyǒu. Qǐng zuò. | No. Please sit.
+力波 | 谢谢。小姐,请问,您贵姓? | Xièxie. Xiǎojiě, qǐngwèn, nín guìxìng? | Thanks. Miss, your surname?
+林娜 | 我姓林,叫林娜。认识你很高兴。 | Wǒ xìng Lín, jiào Lín Nà. Rènshi nǐ hěn gāoxìng. | I'm Lin Na. Nice to meet you.
+力波 | 我姓丁,叫丁力波。我也很高兴!你是学生吗? | Wǒ xìng Dīng, jiào Dīng Lìbō. Wǒ yě hěn gāoxìng! Nǐ shì xuésheng ma? | Me too! Are you a student?
+林娜 | 是。我是英国人,在语言学院学习汉语。你是哪国人? | Shì. Wǒ shì Yīngguó rén, zài yǔyán xuéyuàn xuéxí Hànyǔ. Nǐ shì nǎ guó rén? | Yes. British, studying Chinese. You?
+力波 | 我是加拿大人。我在中文系,专业是文学。你呢? | Wǒ shì Jiānádà rén. Wǒ zài Zhōngwén xì, zhuānyè shì wénxué. Nǐ ne? | Canadian. Chinese dept, literature major.
+林娜 | 我在外语系,专业是教育。你喝咖啡吗? | Wǒ zài wàiyǔ xì, zhuānyè shì jiàoyù. Nǐ hē kāfēi ma? | Foreign languages, education. Coffee?
+力波 | 喝!这是我的名片。 | Hē! Zhè shì wǒ de míngpiàn. | Yes! My name card.
+林娜 | 你的名字很有意思!你的普通话太好了! | Nǐ de míngzi hěn yǒuyìsi! Nǐ de pǔtōnghuà tài hǎo le! | Interesting name! Your Mandarin is so good!
+力波 | 谢谢! | Xièxie! | Thanks!
+林娜 | 不用谢! | Bú yòng xiè! | No need!
+[场景二 · 语言学院,选修]
+林娜 | 昨天天气不好,今天很好。明天天气怎么样? | Zuótiān tiānqì bù hǎo, jīntiān hěn hǎo. Míngtiān tiānqì zěnmeyàng? | Yesterday bad, today good. Tomorrow?
+力波 | 我不知道。你选修什么? | Wǒ bù zhīdào. Nǐ xuǎnxiū shénme? | Don't know. What electives?
+林娜 | 我选修美术、文学、音乐。你呢? | Wǒ xuǎnxiū měishù, wénxué, yīnyuè. Nǐ ne? | Art, literature, music. You?
+力波 | 我选修物理、化学、数学。 | Wǒ xuǎnxiū wùlǐ, huàxué, shùxué. | Physics, chemistry, math.
+林娜 | 啊,你太忙了! | À, nǐ tài máng le! | Ah, you're so busy!
+力波 | 历史、哲学、经济,我都没有选修。 | Lìshǐ, zhéxué, jīngjì, wǒ dōu méiyǒu xuǎnxiū. | None of history, philosophy, economics.
+林娜 | 我也学习中国文化,我也要看京剧! | Wǒ yě xuéxí Zhōngguó wénhuà, wǒ yě yào kàn jīngjù! | I want to see Peking opera too!
+力波 | 京剧很有意思!你的爸爸、妈妈呢? | Jīngjù hěn yǒuyìsi! Nǐ de bàba, māma ne? | Opera's fun! Your parents?
+林娜 | 他们在英国。爸爸是医生,妈妈是记者。你呢? | Tāmen zài Yīngguó. Bàba shì yīshēng, māma shì jìzhě. Nǐ ne? | In Britain. Dad's a doctor, mum a journalist.
+力波 | 哥哥是教授,弟弟是学生。你的奶奶、外婆呢? | Gēge shì jiàoshòu, dìdi shì xuésheng. Nǐ de nǎinai, wàipó ne? | Brother professor, little brother student. Grandmas?
+林娜 | 也在英国。 | Yě zài Yīngguó. | Also in Britain.
+张教授 | 请进来,请坐。你们好!我是张教授,教你们汉语。 | Qǐng jìnlái, qǐng zuò. Nǐmen hǎo! Wǒ shì Zhāng jiàoshòu, jiāo nǐmen Hànyǔ. | Come in, sit. I'm Prof. Zhang.
+林娜 | 张老师,您好! | Zhāng lǎoshī, nín hǎo! | Hello, Teacher Zhang!
+张教授 | 我看一下:马大为,美国人。吉汉锐,日本人。陆雨平,法国人。宋华,俄罗斯人。陈先生,德国人。杨小姐、王小云,中国人。 | Wǒ kàn yíxià: Mǎ Dàwéi, Měiguó rén. Jí Hànruì, Rìběn rén. Lù Yǔpíng, Fǎguó rén. Sòng Huá, Èluósī rén. Chén xiānsheng, Déguó rén. Yáng xiǎojiě, Wáng Xiǎoyún, Zhōngguó rén. | Roll call
+张教授 | 男的,女的,你们都很忙啊!丁先生,请你介绍一下林小姐。 | Nán de, nǚ de, nǐmen dōu hěn máng a! Dīng xiānsheng, qǐng nǐ jièshào yíxià Lín xiǎojiě. | Mr. Ding, introduce Miss Lin.
+力波 | 她叫林娜,是英国人,很有意思! | Tā jiào Lín Nà, shì Yīngguó rén, hěn yǒuyìsi! | She's Lin Na, British, very interesting!
+张教授 | 开学了,你们要学习汉语啊! | Kāixué le, nǐmen yào xuéxí Hànyǔ a! | School's started, study!
+[场景三 · 很晚了,餐厅和宿舍]
+林娜 | 你有女朋友吗? | Nǐ yǒu nǚpéngyou ma? | Got a girlfriend?
+力波 | 没有。你有男朋友吗? | Méiyǒu. Nǐ yǒu nánpéngyou ma? | No. Got a boyfriend?
+林娜 | 没有!那是谁?她是你的女朋友吗? | Méiyǒu! Nà shì shéi? Tā shì nǐ de nǚpéngyou ma? | No! Who's that? Your girlfriend?
+力波 | 不是!她是杨小姐,我的朋友。 | Bú shì! Tā shì Yáng xiǎojiě, wǒ de péngyou. | No! Miss Yang, my friend.
+林娜 | 现在很晚了。你的宿舍有咖啡吗? | Xiànzài hěn wǎn le. Nǐ de sùshè yǒu kāfēi ma? | Late now. Coffee at your dorm?
+力波 | 有!你要去看一下吗? | Yǒu! Nǐ yào qù kàn yíxià ma? | Yes! Want to take a look?
+林娜 | 可以吗?你的宿舍在哪儿? | Kěyǐ ma? Nǐ de sùshè zài nǎr? | Okay? Where's your dorm?
+力波 | 行!在四层,二零四号。 | Xíng! Zài sì céng, èr líng sì hào. | Sure! 4th floor, room 204.
+马大为 | 你们……啊!抱歉!我在这儿! | Nǐmen... a! Bàoqiàn! Wǒ zài zhèr! | You two... ah! Sorry! I'm here!
+力波 | 大为!你在宿舍啊? | Dàwéi! Nǐ zài sùshè a? | Dawei! You're in the dorm?
+马大为 | 对不起!恐怕你们要……我去游泳。 | Duìbuqǐ! Kǒngpà nǐmen yào... wǒ qù yóuyǒng. | Sorry! I'm afraid you want... I'll go swim.
+林娜 | 现在很晚了,游泳? | Xiànzài hěn wǎn le, yóuyǒng? | It's late, swimming?
+马大为 | 那我去打球!再见! | Nà wǒ qù dǎqiú! Zàijiàn! | Then I'll play ball! Bye!
+力波 | 没关系!再见! | Méi guānxi! Zàijiàn! | No problem! Bye!
+林娜 | 马大为,他很有意思!你很高,你的名字也很有意思。 | Mǎ Dàwéi, tā hěn yǒuyìsi! Nǐ hěn gāo, nǐ de míngzi yě hěn yǒuyìsi. | Dawei's funny! You're tall, your name's fun too.
+力波 | 林娜,你……我……你是我的…… | Lín Nà, nǐ... wǒ... nǐ shì wǒ de... | Lin Na, you... I... you're my...
+林娜 | 请再说一遍? | Qǐng zài shuō yí biàn? | Say it once more?
+力波 | 你是我的女朋友吗? | Nǐ shì wǒ de nǚpéngyou ma? | Be my girlfriend?
+林娜 | 是啊!你是我的男朋友了! | Shì a! Nǐ shì wǒ de nánpéngyou le! | Yes! You're my boyfriend now!
+力波 | 太高兴了!你什么时候有时间? | Tài gāoxìng le! Nǐ shénme shíhou yǒu shíjiān? | So happy! When are you free?
+林娜 | 明天、今天、现在……都有! | Míngtiān, jīntiān, xiànzài... dōu yǒu! | Tomorrow, today, now... all!
+@@
+我是 ___。 | 学生 · 老师 · 医生 · 记者 · 教授
+你是哪国人?我是 ___ 人。 | 中国 · 英国 · 加拿大 · 美国 · 法国 · 德国 · 俄罗斯 · 日本
+我在 ___ 学习 ___。 | 语言学院 · 中文系 · 外语系 ‖ 汉语 · 中文 · 外语 · 中国文化
+我选修 ___。 | 美术 · 文学 · 物理 · 化学 · 数学 · 音乐 · 历史 · 哲学 · 经济
+太 ___ 了! | 忙 · 高 · 晚 · 好 · 有意思 · 高兴
+___ 天气怎么样? | 昨天 · 今天 · 明天
+我有 ___,没有 ___。 | 咖啡 · 名片 · 时间 · 哥哥 · 弟弟 · 男朋友
+我去 ___。 | 游泳 · 打球 · 餐厅 · 宿舍 · 学院
+我的 ___ 是 ___。 | 爸爸/医生 · 妈妈/记者 · 哥哥/教授 · 弟弟/学生
+你什么时候有时间? | 现在 · 今天 · 明天
+请 ___ 一下。 | 坐 · 进来 · 介绍 · 看
+你是 ___ 吗? | 张教授 · 陈先生 · 杨小姐 · 王小云 · 马大为 · 宋华 · 陆雨平 · 吉汉锐
+</script>
+
+<div class="bar">
+  <a href="index.html">&larr; Words</a>
+  <span class="sp"></span>
+  <button id="tn" aria-pressed="true" title="Color pinyin by tone">Tones</button>
+  <button id="all" aria-pressed="false" title="Show or hide every pinyin and meaning">Show all</button>
+</div>
+
+<main id="m"></main>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+function sget(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function sset(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+
+/* pinyin tone colouring (same as index.html) */
+var V='aeiouüāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ',TM={'ā':1,'á':2,'ǎ':3,'à':4,'ē':1,'é':2,'ě':3,'è':4,'ī':1,'í':2,'ǐ':3,'ì':4,'ō':1,'ó':2,'ǒ':3,'ò':4,'ū':1,'ú':2,'ǔ':3,'ù':4,'ǖ':1,'ǘ':2,'ǚ':3,'ǜ':4},
+ SYL=new RegExp('(?:zh|ch|sh|[bpmfdtnlgkhjqxrzcsyw])?['+V+']+(?:ng|n|r)?(?!['+V+'])','gi');
+function tonify(s){var f=document.createDocumentFragment(),last=0,m;SYL.lastIndex=0;
+ while((m=SYL.exec(s))){
+  if(m.index>last)f.appendChild(document.createTextNode(s.slice(last,m.index)));
+  var tn=5,w=m[0].toLowerCase();for(var i=0;i<w.length;i++){if(TM[w[i]]){tn=TM[w[i]];break}}
+  var sp=el('span','t'+tn,m[0]);f.appendChild(sp);last=m.index+m[0].length}
+ if(last<s.length)f.appendChild(document.createTextNode(s.slice(last)));return f}
+
+/* build page */
+var raw=$('#story').textContent.split('\n'),m=$('#m'),sec=null,inDrills=false;
+var h1=el('h1','zh','林娜和丁力波');m.appendChild(h1);m.appendChild(el('p','sub','Lín Nà hé Dīng Lìbō · tap a line to show pinyin and meaning'));
+raw.forEach(function(ln){
+  ln=ln.trim();if(!ln)return;
+  if(ln==='@@'){inDrills=true;m.appendChild(el('h2',null,'句型替换 · PATTERN DRILLS'));return}
+  var h=ln.match(/^\[(.+)\]$/);
+  if(h){m.appendChild(el('h2',null,h[1]));return}
+  var c=ln.split('|').map(function(x){return x.trim()});
+  if(inDrills){
+    var d=el('div','d'),p=el('div','p zh',c[0]),w=el('div','w zh');
+    (c[1]||'').split(/\s*([·‖])\s*/).forEach(function(x){if(x==='·'||x==='‖'){w.appendChild(el('s',null,x))}else if(x){w.appendChild(document.createTextNode(x))}});
+    d.appendChild(p);d.appendChild(w);m.appendChild(d);return}
+  if(c.length<4)return;
+  var b=el('button','l');b.type='button';b.setAttribute('aria-expanded','false');
+  b.appendChild(el('span','who',c[0]));
+  b.appendChild(el('span','t zh',c[1]));
+  var more=el('span','more'),inner=el('span'),py=el('span','py');
+  py.appendChild(tonify(c[2]));inner.appendChild(py);inner.appendChild(el('span','en',c[3]));more.appendChild(inner);b.appendChild(more);
+  b.addEventListener('click',function(){
+    if(String(getSelection()))return; /* let people select text without toggling */
+    b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')==='true'?'false':'true')});
+  m.appendChild(b);
+});
+
+/* show all */
+var all=$('#all');
+all.addEventListener('click',function(){var v=all.getAttribute('aria-pressed')!=='true';
+  all.setAttribute('aria-pressed',v?'true':'false');all.textContent=v?'Hide all':'Show all';
+  document.body.classList.toggle('all',v);
+  if(!v)document.querySelectorAll('.l[aria-expanded=true]').forEach(function(b){b.setAttribute('aria-expanded','false')})});
+
+/* tones: shares the setting with the word list */
+var tn=$('#tn');
+function setTc(v){document.body.classList.toggle('tc',v);tn.setAttribute('aria-pressed',v?'true':'false');sset('mv_tc',v?'1':'0')}
+tn.addEventListener('click',function(){setTc(!document.body.classList.contains('tc'))});
+setTc(sget('mv_tc')!=='0');
+
+if('serviceWorker' in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('sw.js').catch(function(){});
+})();
+</script>
+</body>
+</html>

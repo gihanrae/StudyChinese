@@ -18,6 +18,16 @@ Hover a character to see its stroke order. Check pinyin and meaning. Build sente
 
 Pinyin and meaning hide again after 4 seconds.
 
+## Story
+
+**Story** in the top bar opens a short dialogue. Each line is big; tap it to show pinyin and meaning, tap again to hide.
+To edit or add lines, change the block at the top of `story.html`:
+
+```
+[Scene title]
+speaker | 汉字 | pinyin | english
+```
+
 ## Colors
 
 Card colors are the category: People, Things, Subjects, Verbs, Adjectives, Pronouns, Other (gray).
@@ -56,6 +66,7 @@ python bake-strokes.py
 | File | |
 |---|---|
 | `index.html` | The whole app and vocabulary |
+| `story.html` | The story / dialogue reader |
 | `sw.js`, `manifest.webmanifest`, `icon-*.png` | Install to phone, works offline |
 | `bake-strokes.py` | Embeds stroke data |
 
