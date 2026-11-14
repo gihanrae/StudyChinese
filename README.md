@@ -7,12 +7,13 @@ Hover a character to see its stroke order. Check pinyin and meaning. Build sente
 
 | Do | How |
 |---|---|
-| Stroke order | Hover (phone: tap) |
+| Stroke order | Hover (loops while hovered) |
 | Pinyin | Click / tap |
 | Meaning + example | Hold |
+| Map | Scroll = zoom, middle-drag (or drag empty space) = pan, pinch / one finger on phone, double-click empty space = Fit |
+| Layout | Words flow in a dense, gap-free grid (same order as the vocab file, no group labels); search re-packs the grid around the matches, **Fit** or the 汉语 dot shows everything. **Groups** in the top bar shows tiny dim group names on each group's first row (remembered); full labels with edit buttons appear in **Edit** mode |
+| Attention | Every pinyin / meaning check is counted. Most-checked words get a slightly deeper colour. **Reset counts** clears them |
 | Build a sentence | Drag cards into the bottom box, or type hanzi / pinyin / English and press Enter |
-| Remove a word | Click it in the box |
-| Game | Toggle **Game**: random order, words you check most sink to the bottom |
 | Write | **Write**, then tap a card and trace it |
 | Search | Hanzi, pinyin (no tones) or English |
 
@@ -33,41 +34,11 @@ speaker | 汉字 | pinyin | english
 Card colors are the category: People, Things, Subjects, Verbs, Adjectives, Pronouns, Other (gray).
 **Tones** colors pinyin: 1 blue, 2 green, 3 amber, 4 red, neutral gray.
 
-## Add words
+## Edit the map
 
-Edit the list at the top of `index.html`, one line per word, under its `[section]`:
-
-```
-汉字 | pinyin | english | example sentence | lesson (optional)
-```
-
-Sections: `[people] [things] [subjects] [verbs] [adj] [pron] [other]`
-
-Or use **+** in the page and paste lines. Those are saved in your browser; **Export** gives lines to paste into the file.
-
-## Lessons
-
-**+** → type a number → **Tag cards** → tap cards. A lesson filter appears.
-
-## Backup
-
-**+** → **Backup** / **Restore**: counts, saved sentences, added words, lessons, settings.
-
-## Offline stroke data
-
-New characters download their strokes once. To embed them in the file (needs Python and internet):
-
-```
-python bake-strokes.py
-```
+**Edit** turns on editing. Hubs show small buttons: **+ word**, **+ group**, **+ category** (on the centre), rename ✎ and delete ✕. Click any word to edit or delete it. Paste lines like `汉字 | pinyin | meaning` into a new word's first field to add many at once.
+Edits live in this browser; **Export** saves everything as `vocab.txt` to paste into `data/vocab.js`, **Backup / Restore** moves them between devices.
 
 ## Files
 
-| File | |
-|---|---|
-| `index.html` | The whole app and vocabulary |
-| `story.html` | The story / dialogue reader |
-| `sw.js`, `manifest.webmanifest`, `icon-*.png` | Install to phone, works offline |
-| `bake-strokes.py` | Embeds stroke data |
-
-Stroke data: [Hanzi Writer](https://hanziwriter.org). Font: LXGW WenKai TC.
+`index.html` shell · `css/app.css` · `js/app.js` · `data/vocab.js` words · `data/strokes.js` stroke data for every word (offline) · `vendor/` stroke library. After adding words to `data/vocab.js`, run `python bake-strokes.py` once (needs internet) to embed their strokes.
