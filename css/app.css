@@ -196,7 +196,7 @@ html,body{height:100%;overflow:hidden}
 @keyframes grow{from{opacity:0;scale:.2}}
 @keyframes hubin{from{opacity:0;scale:.3}}
 #tip{background:var(--bg);color:var(--fg);border:1px solid var(--ln);box-shadow:0 8px 24px rgba(0,0,0,.16);padding:6px 11px;font:15px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center}
-#tip .tp{font-size:16px}#tip .tm{color:var(--mut);font-size:13px}#tip .tx{font:15px "LXGW WenKai TC","Kaiti SC",STKaiti,KaiTi,serif;margin-top:3px}
+#tip .tp{font-size:16px}#tip .tm{color:var(--mut);font-size:13px}#tip .tx{white-space:pre-line;font:15px "LXGW WenKai TC","Kaiti SC",STKaiti,KaiTi,serif;margin-top:3px}
 #q{max-width:170px}
 .bar{gap:4px 6px}
 

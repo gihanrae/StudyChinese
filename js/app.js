@@ -19,7 +19,7 @@ function tonify(s){var f=document.createDocumentFragment(),last=0,m;SYL.lastInde
 var tip=$('#tip'),tipFor=null,wmode=false,EM=false,GL=sget('mv_gl')==='1';
 function showTip(c,lvl){var it=c._it;tipFor=c;tip.textContent='';
  var a=document.createElement('div');a.className='tp';a.appendChild(tonify(it.p));tip.appendChild(a);
- if(lvl>1){var m=document.createElement('div');m.className='tm';m.textContent=it.e;tip.appendChild(m);if(it.x){var x=document.createElement('div');x.className='tx';x.textContent=it.x;tip.appendChild(x)}}
+ if(lvl>1){var m=document.createElement('div');m.className='tm';m.textContent=it.e;tip.appendChild(m);if(it.x){var x=document.createElement('div');x.className='tx';x.textContent=it.x.split(' / ').join('\n');tip.appendChild(x)}}
  tip.classList.remove('on');tip.style.visibility='hidden';
  var r=c.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight,top=r.top-h-8;if(top<48)top=r.bottom+8;
  tip.style.left=Math.max(6,Math.min(innerWidth-w-6,r.left+r.width/2-w/2))+'px';tip.style.top=top+'px';tip.style.visibility='';
@@ -146,7 +146,7 @@ function arrange(){
  function gcd(p,q){return q?gcd(q,p%q):p}
  if(NG>2){stride=Math.round(NG*.382);while(gcd(stride,NG)!==1)stride++}
  /* every group gets its own hue (spread so neighbours differ) and one of 3 saturation levels */
- function groupColor(){var i=NG>0?(GI++*stride)%NG:0;return {hue:i*360/NG+10,sm:[1.5,2.1,2.7][i%3]}}
+ function groupColor(){var i=NG>0?(GI++*stride)%NG:0;return {hue:i*360/NG+10,sm:[.8,1.1,1.4][i%3]}}
  /* candidate block shapes for n cards: near-full rectangles, not too long and thin */
  function shapes(n){var o=[],mx=Math.max(1,Math.floor(n*.2));
   for(var c=1;c<=n;c++){var r=Math.ceil(n/c),w=c*r-n,as=Math.max(c/r,r/c);if(w<=mx&&as<=3)o.push({c:c,r:r})}

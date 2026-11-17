@@ -93,14 +93,14 @@ window.VOCAB=`
 七 | qī | seven | 我七号开学。 | new
 八 | bā | eight | 我们八号去游泳。 | new
 九 | jiǔ | nine | 九号我很忙。 | new
-十 | shí | ten | 十号是明天。 | new
-百 | bǎi | hundred | 这儿有一百个人。 | new
 号 | hào | number / day | 我的宿舍是四号。
-[things/Big numbers]
-一百 | yìbǎi | 100 | 这儿有一百个人。 | new
-一百零一 | yìbǎi líng yī | 101 | 我的宿舍是一百零一号。 | new
-一百一十 | yìbǎi yìshí | 110 | 他的宿舍是一百一十号。 | new
-一百一十一 | yìbǎi yìshí yī | 111 | 我的宿舍是一百一十一号。 | new
+[things/Tens & hundreds]
+十 | shí | ten (10) | 十号是明天。 / 一百一十 = 110 / 一百一十一 = 111 | new
+百 | bǎi | hundred (100) | 这儿有一百个人。 / 一百零一 = 101 / 我的宿舍是一百零一号。 | new
+[things/Arithmetic]
+加 | jiā | plus (+) | 五十六加十二是多少？五十六加十二是六十八。 | new
+减 | jiǎn | minus (−) | 七十八减二十一是多少？七十八减二十一是五十七。 | new
+乘 | chéng | times (×) | 六乘七是多少？六乘七是四十二。 | new
 [things/Everyday]
 咖啡 | kāfēi | coffee | 我喝咖啡。
 名片 | míngpiàn | business card | 这是我的名片。
@@ -150,10 +150,9 @@ window.VOCAB=`
 游泳 | yóuyǒng | swim | 我们去游泳了。
 打球 | dǎqiú | play ball | 我们明天打球。
 看 | kàn | look / see / watch | 你们看这儿。
-[verbs/Like & love]
+[verbs/Like, make & work]
 喜欢 | xǐhuan | to like | 我喜欢咖啡。 | new
 爱 | ài | to love | 我爱我妈妈。 | new
-[verbs/Make & work]
 做 | zuò | to do / make | 我做咖啡。 | new
 工作 | gōngzuò | to work / job | 我爸爸工作很忙。 | new
 
@@ -195,13 +194,14 @@ window.VOCAB=`
 几 | jǐ | how many (under 10) | 你有几个姐姐？ | new
 多少 | duōshao | how many (10 or more) | 你们学院有多少学生？ | new
 
-[other/Particles]
+[other/Particles & linking]
 吗 | ma | question particle | 你好吗？
 呢 | ne | "and you?" | 我很好，你呢？
 啊 | a | modal particle | 他们开学啊。
 了 | le | completed / change | 他去了。
 的 | de | possessive | 我的朋友
 们 | men | plural suffix | 我们是学生。
+和 | hé | and | 我和妹妹都是学生。 | new
 [other/Degree & scope]
 很 | hěn | very | 我很忙。
 也 | yě | also | 我也很忙。
@@ -222,8 +222,6 @@ window.VOCAB=`
 口 | kǒu | measure word (family members) | 我家有五口人。 | new
 位 | wèi | measure word (people, polite) | 这位是王老师。 | new
 遍 | biàn | measure word (times) | 请你说一遍。
-[other/Linking]
-和 | hé | and | 我和妹妹都是学生。 | new
 [other/Polite phrases]
 对不起 | duìbuqǐ | sorry | 对不起，我不知道。
 没关系 | méi guānxi | it's okay | 没关系。

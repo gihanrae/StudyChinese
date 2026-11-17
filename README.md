@@ -32,7 +32,7 @@ speaker | 汉字 | pinyin | english
 
 ## Colors
 
-Every group has its own colour (spread so neighbouring hues are far apart in the vocab order). Categories: People, Things, Subjects, Verbs, Adjectives, Pronouns, Other.
+Every group has its own soft, muted colour (spread so neighbouring hues are far apart in the vocab order). Categories: People, Things, Subjects, Verbs, Adjectives, Pronouns, Other.
 **Tones** colors pinyin: 1 blue, 2 green, 3 amber, 4 red, neutral gray.
 
 ## Edit the map
