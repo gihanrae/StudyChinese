@@ -10,12 +10,13 @@ Hover a character to see its stroke order. Check pinyin and meaning. Build sente
 | Stroke order | Hover (loops while hovered) |
 | Pinyin | Click / tap |
 | Meaning + example | Hold |
-| Map | Scroll = zoom, middle-drag (or drag empty space) = pan, pinch / one finger on phone, double-click empty space = Fit |
-| Layout | Words flow in a dense, gap-free grid (same order as the vocab file, no group labels); search re-packs the grid around the matches, **Fit** or the 汉语 dot shows everything. **Groups** in the top bar shows tiny dim group names on each group's first row (remembered); full labels with edit buttons appear in **Edit** mode |
+| Map | Scroll = zoom (up to 40×, double-click a card = fit that card, again = fit all), middle-drag (or drag empty space) = pan, pinch / one finger on phone, double-click empty space = Fit |
+| Layout | Each group is its own compact block of cards (cards keep their tight 2px gap; blocks sit 6px apart, 3×). Blocks are packed tightly (shapes chosen to fill gaps), so the order is roughly, not exactly, the vocab-file order. Search re-packs the blocks around the matches, **Fit** or the 汉语 dot shows everything. **Groups** in the top bar shows tiny dim group names on each group's first row (remembered); full labels with edit buttons appear in **Edit** mode |
 | Attention | Every pinyin / meaning check is counted. Most-checked words get a slightly deeper colour. **Reset counts** clears them |
 | Build a sentence | Drag cards into the bottom box, or type hanzi / pinyin / English and press Enter |
 | Write | **Write**, then tap a card and trace it |
-| Search | Hanzi, pinyin (no tones) or English |
+| Search | Hanzi, pinyin (no tones) or English. Type `new` to see only new words |
+| New dot | Small, soft red dot on a card = new word. Click it to clear. Edit mode: **New** toggle in the word form, **Clear new** clears all. In `vocab.js` add `\| new` as the 5th field |
 
 Pinyin and meaning hide again after 4 seconds.
 
@@ -31,7 +32,7 @@ speaker | 汉字 | pinyin | english
 
 ## Colors
 
-Card colors are the category: People, Things, Subjects, Verbs, Adjectives, Pronouns, Other (gray).
+Every group has its own colour (spread so neighbouring hues are far apart in the vocab order). Categories: People, Things, Subjects, Verbs, Adjectives, Pronouns, Other.
 **Tones** colors pinyin: 1 blue, 2 green, 3 amber, 4 red, neutral gray.
 
 ## Edit the map

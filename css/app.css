@@ -269,6 +269,13 @@ body.em #hubs{z-index:4}
 .ea button{font-size:11px;line-height:18px}
 
 /* Groups button: very small, dim group text over the top edge of each group's first run */
-body.gl:not(.em) #hubs{z-index:4;pointer-events:none}
+body.gp:not(.em) #hubs{z-index:4;pointer-events:none}
 .gt{position:absolute;font-size:7px;line-height:8px;font-weight:600;letter-spacing:.02em;color:var(--mut);opacity:.55;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
 .intro .gt{animation:fadein .8s ease .6s backwards}
+
+/* new-word dot (click it to clear) */
+.nd{display:none;position:absolute;top:4px;right:4px;width:4px;height:4px;border-radius:50%;background:#d9776a;opacity:.55;cursor:pointer;z-index:2;transition:opacity .15s}
+.nd::after{content:"";position:absolute;inset:-8px}
+.c:hover .nd,.nd:hover{opacity:.9}
+.c.nw .nd{display:block}
+@media (pointer:coarse){.nd{width:6px;height:6px}.nd::after{inset:-10px}}
