@@ -13,11 +13,11 @@
 @media (prefers-color-scheme:dark){:root{--bg:#18181a;--fg:#ececea;--mut:#9a9a95;--ln:#2e2e30;--tl:70%;color-scheme:dark}}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
-body{padding:env(safe-area-inset-top,0) 16px calc(60px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
+body{padding:env(safe-area-inset-top,0) 12px calc(24px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
 .zh{font-family:"LXGW WenKai TC","Kaiti SC",STKaiti,KaiTi,"楷体",serif}
 
 /* top bar */
-.bar{position:sticky;top:env(safe-area-inset-top,0);z-index:5;background:var(--bg);display:flex;align-items:center;gap:8px;max-width:680px;margin:0 auto;padding:8px 0}
+.bar{position:sticky;top:env(safe-area-inset-top,0);z-index:5;background:var(--bg);display:flex;align-items:center;gap:8px;max-width:1100px;margin:0 auto;padding:4px 0}
 .bar .sp{flex:1}
 .bar a,button{font:inherit;font-size:12px;color:var(--fg);background:none;border:1px solid var(--ln);border-radius:6px;padding:3px 10px;cursor:pointer;text-decoration:none;display:inline-block}
 .bar a:hover,button:hover{border-color:var(--mut)}
@@ -25,30 +25,32 @@ button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(
 a:focus-visible,button:focus-visible{outline:2px solid var(--mut);outline-offset:2px}
 @media (pointer:coarse){.bar a,.bar button{min-height:40px;font-size:14px;padding:6px 14px}}
 
-main{max-width:680px;margin:0 auto}
-h1{font-weight:400;font-size:clamp(30px,8vw,44px);line-height:1.2;margin:28px 0 4px}
-.sub{color:var(--mut);margin:0 0 8px}
-h2{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--mut);margin:56px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--ln)}
+main{max-width:1100px;margin:0 auto}
+.ch{display:grid;grid-template-columns:1fr;gap:0 28px;align-items:start}
+@media (min-width:860px){.ch{grid-template-columns:1fr 1fr}}
+h1{font-weight:400;font-size:clamp(24px,6vw,32px);line-height:1.2;margin:6px 0 0}
+.sub{color:var(--mut);margin:0 0 2px;font-size:12px}
+h2{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--mut);margin:14px 0 2px;padding-bottom:3px;border-bottom:1px solid var(--ln)}
 
 /* a line: tap to reveal */
-.l{display:block;width:100%;text-align:left;border:0;border-radius:10px;background:none;padding:14px 8px;margin:0 -8px;width:calc(100% + 16px);font-size:inherit;color:inherit;cursor:pointer;-webkit-user-select:text;user-select:text}
+.l{display:grid;grid-template-columns:3.2em 1fr;column-gap:6px;align-items:baseline;width:100%;text-align:left;border:0;border-radius:8px;background:none;padding:5px 6px;margin:0;font-size:inherit;color:inherit;cursor:pointer;-webkit-user-select:text;user-select:text}
 @media (hover:hover){.l:hover{background:color-mix(in srgb,var(--ln) 45%,transparent)}}
-.who{display:block;font-size:12px;color:var(--mut);margin-bottom:2px}
-.t{display:block;font-size:clamp(26px,6.4vw,36px);line-height:1.35}
-.more{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .25s ease,opacity .2s ease,visibility 0s .25s}
+.who{display:block;font-size:11px;color:var(--mut);white-space:nowrap}
+.t{display:block;font-size:clamp(19px,4.8vw,24px);line-height:1.3}
+.more{grid-column:2;display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .25s ease,opacity .2s ease,visibility 0s .25s}
 .more>span{display:block;overflow:hidden;min-height:0}
 .l[aria-expanded=true] .more,body.all .more{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .25s ease,opacity .2s ease .05s,visibility 0s}
-.py{display:block;font-size:clamp(15px,3.8vw,18px);padding-top:6px}
-.en{display:block;color:var(--mut);font-size:clamp(14px,3.6vw,16px);padding-top:2px}
+.py{display:block;font-size:clamp(13px,3.4vw,15px);padding-top:2px}
+.en{display:block;color:var(--mut);font-size:clamp(12px,3.2vw,14px);padding-top:1px}
 @media (prefers-reduced-motion:reduce){.more,.l[aria-expanded=true] .more,body.all .more{transition:none}}
 
 /* tone colours (same as the word list) */
 body.tc .t1{color:hsl(212 62% var(--tl))}body.tc .t2{color:hsl(140 52% var(--tl))}body.tc .t3{color:hsl(30 70% var(--tl))}body.tc .t4{color:hsl(352 62% var(--tl))}body.tc .t5{color:var(--mut)}
 
 /* drills */
-.d{padding:12px 0;border-bottom:1px solid var(--ln)}
-.d .p{font-size:clamp(22px,5.4vw,28px)}
-.d .w{color:var(--mut);margin-top:4px;font-size:clamp(15px,3.8vw,18px)}
+.d{padding:6px 0;border-bottom:1px solid var(--ln)}
+.d .p{font-size:clamp(18px,4.6vw,22px)}
+.d .w{color:var(--mut);margin-top:2px;font-size:clamp(13px,3.4vw,16px)}
 .d .w s{text-decoration:none;opacity:.5;margin:0 .35em}
 </style>
 </head>
@@ -61,55 +63,90 @@ body.tc .t1{color:hsl(212 62% var(--tl))}body.tc .t2{color:hsl(140 52% var(--tl)
      After a line with only @@ come the drills:  pattern | word · word · word
      ============================================================ -->
 <script id="story" type="text/plain">
-[场景一 · 开学,餐厅]
+[一 · 开学,餐厅]
+旁白 | 今天开学。力波在餐厅,他很高兴。 | Jīntiān kāixué. Lìbō zài cāntīng, tā hěn gāoxìng. | School starts today. Libo is in the restaurant, and he is happy.
 力波 | 请问,这儿有人吗? | Qǐngwèn, zhèr yǒu rén ma? | Excuse me, is anyone sitting here?
 林娜 | 没有。请坐。 | Méiyǒu. Qǐng zuò. | No. Please sit.
 力波 | 谢谢!请问,您贵姓? | Xièxie! Qǐngwèn, nín guìxìng? | Thanks! May I ask, what is your (polite) surname?
 林娜 | 您?我是学生,不是老师! | Nín? Wǒ shì xuésheng, bú shì lǎoshī! | "Nín"? I'm a student, not a teacher!
-力波 | 对不起,对不起!今天开学,我太高兴了! | Duìbuqǐ, duìbuqǐ! Jīntiān kāixué, wǒ tài gāoxìng le! | Sorry, sorry! School starts today, I'm so happy!
+力波 | 对不起,对不起!今天我太高兴了! | Duìbuqǐ, duìbuqǐ! Jīntiān wǒ tài gāoxìng le! | Sorry, sorry! I'm just so happy today!
 林娜 | 没关系。我叫林娜。你叫什么名字? | Méi guānxi. Wǒ jiào Lín Nà. Nǐ jiào shénme míngzi? | It's okay. I'm Lin Na. What's your name?
 力波 | 我叫丁力波。认识你很高兴。 | Wǒ jiào Dīng Lìbō. Rènshi nǐ hěn gāoxìng. | I'm Ding Libo. Nice to meet you.
 林娜 | 我也很高兴。你是哪国人? | Wǒ yě hěn gāoxìng. Nǐ shì nǎ guó rén? | Me too. Which country are you from?
 力波 | 我是加拿大人。你呢? | Wǒ shì Jiānádà rén. Nǐ ne? | I'm Canadian. And you?
 林娜 | 我是英国人。你说汉语,太好了! | Wǒ shì Yīngguó rén. Nǐ shuō Hànyǔ, tài hǎo le! | I'm British. You speak Chinese, that's great!
 力波 | 不,不!你的普通话太好了! | Bù, bù! Nǐ de pǔtōnghuà tài hǎo le! | No, no! Your Mandarin is so good!
-林娜 | 你在哪儿学习? | Nǐ zài nǎr xuéxí? | Where do you study?
-力波 | 我在语言学院,中文系。我的专业是文学。你呢? | Wǒ zài yǔyán xuéyuàn, Zhōngwén xì. Wǒ de zhuānyè shì wénxué. Nǐ ne? | At the language institute, Chinese department. My major is literature. And you?
-林娜 | 我也在语言学院,外语系。我的专业是教育。你喝咖啡吗? | Wǒ yě zài yǔyán xuéyuàn, wàiyǔ xì. Wǒ de zhuānyè shì jiàoyù. Nǐ hē kāfēi ma? | Same institute, foreign languages department. My major is education. Do you drink coffee?
-力波 | 喝!这是我的名片。 | Hē! Zhè shì wǒ de míngpiàn. | Yes! This is my name card.
+林娜 | 你在哪儿学习?你的专业是什么? | Nǐ zài nǎr xuéxí? Nǐ de zhuānyè shì shénme? | Where do you study? What is your major?
+力波 | 我在外语学院的中文系。我的专业是文学。你呢? | Wǒ zài wàiyǔ xuéyuàn de Zhōngwén xì. Wǒ de zhuānyè shì wénxué. Nǐ ne? | At the foreign languages institute, Chinese department. My major is literature. And you?
+林娜 | 我也在这个学院的外语系。我学习语言,专业是教育。 | Wǒ yě zài zhège xuéyuàn de wàiyǔ xì. Wǒ xuéxí yǔyán, zhuānyè shì jiàoyù. | Same institute, foreign languages department. I study languages, my major is education.
+林娜 | 你喝咖啡吗?我今天还没喝!我要一杯。 | Nǐ hē kāfēi ma? Wǒ jīntiān hái méi hē! Wǒ yào yì bēi. | Do you drink coffee? I haven't had any yet today! I want a cup.
+力波 | 我也要!这是我的名片。 | Wǒ yě yào! Zhè shì wǒ de míngpiàn. | Me too! This is my name card.
 林娜 | 你的名字很有意思! | Nǐ de míngzi hěn yǒuyìsi! | Your name is very interesting!
-[场景二 · 语言学院,课堂]
-林娜 | 昨天天气不好,今天很好。明天天气怎么样? | Zuótiān tiānqì bù hǎo, jīntiān hěn hǎo. Míngtiān tiānqì zěnmeyàng? | Yesterday the weather was bad, today it's good. How will tomorrow be?
-力波 | 我不知道。你选修什么? | Wǒ bù zhīdào. Nǐ xuǎnxiū shénme? | I don't know. What electives do you take?
+[二 · 课堂,张教授]
+林娜 | 昨天天气不好,今天天气很好。明天天气怎么样? | Zuótiān tiānqì bù hǎo, jīntiān tiānqì hěn hǎo. Míngtiān tiānqì zěnmeyàng? | Yesterday the weather was bad, today the weather is good. How will tomorrow be?
+力波 | 我不知道。看,张教授! | Wǒ bù zhīdào. Kàn, Zhāng jiàoshòu! | I don't know. Look, Professor Zhang!
+张教授 | 请进来,请坐。你们好!我是张教授,我是系主任,也教你们汉语。 | Qǐng jìnlái, qǐng zuò. Nǐmen hǎo! Wǒ shì Zhāng jiàoshòu, wǒ shì xìzhǔrèn, yě jiāo nǐmen Hànyǔ. | Please come in, sit down. Hello, everyone! I'm Professor Zhang, the department head, and I'll also teach you Chinese.
+林娜 | 张老师,您好! | Zhāng lǎoshī, nín hǎo! | Hello, Teacher Zhang!
+张教授 | 这儿不说英语,说汉语!这位是我们的助教,杨小姐。 | Zhèr bù shuō Yīngyǔ, shuō Hànyǔ! Zhè wèi shì wǒmen de zhùjiào, Yáng xiǎojiě. | No English here, only Chinese! This is our teaching assistant, Miss Yang.
+张教授 | 我看一下:马大为,美国人。陆雨平,法国人。宋华,俄罗斯人。陈先生,德国人。王小云,中国人。还有一位日本学生。 | Wǒ kàn yíxià: Mǎ Dàwéi, Měiguó rén. Lù Yǔpíng, Fǎguó rén. Sòng Huá, Èluósī rén. Chén xiānsheng, Déguó rén. Wáng Xiǎoyún, Zhōngguó rén. Hái yǒu yí wèi Rìběn xuésheng. | Let me see: Ma Dawei, American. Lu Yuping, French. Song Hua, Russian. Mr. Chen, German. Wang Xiaoyun, Chinese. And one Japanese student.
+力波 | 请问,我们系有多少学生? | Qǐngwèn, wǒmen xì yǒu duōshao xuésheng? | May I ask, how many students are in our department?
+张教授 | 一共一百一十个。男学生很多,女学生很少。 | Yígòng yìbǎi yìshí gè. Nán xuésheng hěn duō, nǚ xuésheng hěn shǎo. | 110 altogether. Lots of male students, very few female students.
+林娜 | 啊,外国学生真多! | A, wàiguó xuésheng zhēn duō! | Wow, so many foreign students!
+张教授 | 你们都是学生,都很忙啊!丁先生,请你介绍一下林娜。 | Nǐmen dōu shì xuésheng, dōu hěn máng a! Dīng xiānsheng, qǐng nǐ jièshào yíxià Lín Nà. | You are all students, and all busy! Mr. Ding, please introduce Lin Na.
+力波 | 她叫林娜,是英国人。她很有意思! | Tā jiào Lín Nà, shì Yīngguó rén. Tā hěn yǒuyìsi! | She's Lin Na, she's British. She's very interesting!
+张教授 | 好。你们选修什么? | Hǎo. Nǐmen xuǎnxiū shénme? | Good. What electives are you taking?
 林娜 | 我选修美术、音乐、文学。你呢? | Wǒ xuǎnxiū měishù, yīnyuè, wénxué. Nǐ ne? | Art, music, literature. And you?
 力波 | 我选修物理、化学、数学。 | Wǒ xuǎnxiū wùlǐ, huàxué, shùxué. | Physics, chemistry, math.
 林娜 | 啊,你太忙了! | A, nǐ tài máng le! | Ah, you're so busy!
 力波 | 历史、哲学、经济,我都没有选修。 | Lìshǐ, zhéxué, jīngjì, wǒ dōu méiyǒu xuǎnxiū. | History, philosophy, economics, I take none of them.
-林娜 | 我也学习中国文化。我也要看京剧! | Wǒ yě xuéxí Zhōngguó wénhuà. Wǒ yě yào kàn jīngjù! | I'm also studying Chinese culture. I want to see Beijing opera too!
-力波 | 京剧很有意思!你的爸爸、妈妈在哪儿? | Jīngjù hěn yǒuyìsi! Nǐ de bàba, māma zài nǎr? | Beijing opera is fun! Where are your mom and dad?
-林娜 | 他们在英国。爸爸是医生,妈妈是记者。你呢? | Tāmen zài Yīngguó. Bàba shì yīshēng, māma shì jìzhě. Nǐ ne? | In Britain. Dad is a doctor, mom is a journalist. And yours?
-力波 | 我爸爸是教授,妈妈是老师。哥哥是医生,弟弟是学生。 | Wǒ bàba shì jiàoshòu, māma shì lǎoshī. Gēge shì yīshēng, dìdi shì xuésheng. | My dad is a professor, mom is a teacher. My older brother is a doctor, my younger brother is a student.
-林娜 | 你的奶奶呢? | Nǐ de nǎinai ne? | And your grandma?
-力波 | 奶奶也在加拿大。她喝咖啡,也看京剧! | Nǎinai yě zài Jiānádà. Tā hē kāfēi, yě kàn jīngjù! | She's in Canada too. She drinks coffee and watches Beijing opera!
-张教授 | 请进来,请坐。你们好!我是张教授,我教你们汉语。 | Qǐng jìnlái, qǐng zuò. Nǐmen hǎo! Wǒ shì Zhāng jiàoshòu, wǒ jiāo nǐmen Hànyǔ. | Please come in, sit down. Hello, everyone! I'm Professor Zhang, I'll teach you Chinese.
-林娜 | 张老师,您好! | Zhāng lǎoshī, nín hǎo! | Hello, Teacher Zhang!
-张教授 | 我看一下:马大为,美国人。陆雨平,法国人。宋华,俄罗斯人。陈先生,德国人。杨小姐、王小云,中国人。 | Wǒ kàn yíxià: Mǎ Dàwéi, Měiguó rén. Lù Yǔpíng, Fǎguó rén. Sòng Huá, Èluósī rén. Chén xiānsheng, Déguó rén. Yáng xiǎojiě, Wáng Xiǎoyún, Zhōngguó rén. | Let me see: Ma Dawei, American. Lu Yuping, French. Song Hua, Russian. Mr. Chen, German. Miss Yang and Wang Xiaoyun, Chinese.
-张教授 | 你们都是学生,都很忙啊!丁先生,请你介绍一下林娜。 | Nǐmen dōu shì xuésheng, dōu hěn máng a! Dīng xiānsheng, qǐng nǐ jièshào yíxià Lín Nà. | You are all students, and all busy! Mr. Ding, please introduce Lin Na.
-力波 | 她叫林娜,是英国人。她很有意思! | Tā jiào Lín Nà, shì Yīngguó rén. Tā hěn yǒuyìsi! | She's Lin Na, she's British. She's very interesting!
-张教授 | 开学了,你们要学习汉语啊! | Kāixué le, nǐmen yào xuéxí Hànyǔ a! | School has started, you must study Chinese!
-[场景三 · 很晚了,宿舍]
-林娜 | 现在很晚了。你的宿舍有咖啡吗? | Xiànzài hěn wǎn le. Nǐ de sùshè yǒu kāfēi ma? | It's late now. Is there coffee in your dorm?
-力波 | 有!你要去看一下吗? | Yǒu! Nǐ yào qù kàn yíxià ma? | Yes! Do you want to go and take a look?
-林娜 | 可以吗?你的宿舍在哪儿? | Kěyǐ ma? Nǐ de sùshè zài nǎr? | Is that okay? Where is your dorm?
-力波 | 行!在四层,二零四号。 | Xíng! Zài sì céng, èr líng sì hào. | Sure! 4th floor, room 204.
+张教授 | 你们要学习汉语,也要学习中国文化。 | Nǐmen yào xuéxí Hànyǔ, yě yào xuéxí Zhōngguó wénhuà. | You must study Chinese, and Chinese culture too.
+林娜 | 我还要看京剧! | Wǒ hái yào kàn jīngjù! | I also want to see Beijing opera!
+张教授 | 好!请你们说一遍:我爱汉语! | Hǎo! Qǐng nǐmen shuō yí biàn: Wǒ ài Hànyǔ! | Good! Say it once, everyone: I love Chinese!
+[三 · 照片,家人]
+旁白 | 林娜和力波在餐厅喝咖啡。林娜的电脑很小,词典很大。 | Lín Nà hé Lìbō zài cāntīng hē kāfēi. Lín Nà de diànnǎo hěn xiǎo, cídiǎn hěn dà. | Lin Na and Libo drink coffee in the restaurant. Her computer is small, her dictionary is big.
+林娜 | 你看这张照片!这是我家人。 | Nǐ kàn zhè zhāng zhàopiàn! Zhè shì wǒ jiā rén. | Look at this photo! This is my family.
+力波 | 你家有几口人? | Nǐ jiā yǒu jǐ kǒu rén? | How many people are in your family?
+林娜 | 五口人:爸爸、妈妈、哥哥、妹妹和我。 | Wǔ kǒu rén: bàba, māma, gēge, mèimei hé wǒ. | Five: dad, mom, older brother, younger sister and me.
+力波 | 你爸爸、妈妈做什么工作? | Nǐ bàba, māma zuò shénme gōngzuò? | What do your mom and dad do for work?
+林娜 | 爸爸是医生,妈妈是记者。哥哥是律师,他有两个孩子。 | Bàba shì yīshēng, māma shì jìzhě. Gēge shì lǜshī, tā yǒu liǎng gè háizi. | Dad is a doctor, mom is a journalist. My brother is a lawyer, he has two children.
+力波 | 孩子可爱吗? | Háizi kěài ma? | Are the kids cute?
+林娜 | 真可爱!外公、外婆也在英国,我常常去看他们。 | Zhēn kěài! Wàigōng, wàipó yě zài Yīngguó, wǒ chángcháng qù kàn tāmen. | So cute! Grandpa and grandma are in Britain too, I often go to see them.
+林娜 | 你家呢? | Nǐ jiā ne? | And your family?
+力波 | 我家一共有八口人:爸爸、妈妈、爷爷、奶奶、哥哥、姐姐、弟弟和我。 | Wǒ jiā yígòng yǒu bā kǒu rén: bàba, māma, yéye, nǎinai, gēge, jiějie, dìdi hé wǒ. | Eight in all: dad, mom, paternal grandpa and grandma, older brother, older sister, younger brother and me.
+林娜 | 你家人真多!他们都工作吗? | Nǐ jiā rén zhēn duō! Tāmen dōu gōngzuò ma? | Your family is so big! Do they all work?
+力波 | 爸爸是教授,妈妈是老师。哥哥是医生,姐姐是工程师,弟弟还是学生。 | Bàba shì jiàoshòu, māma shì lǎoshī. Gēge shì yīshēng, jiějie shì gōngchéngshī, dìdi hái shì xuésheng. | Dad is a professor, mom is a teacher. Brother is a doctor, sister is an engineer, my younger brother is still a student.
+林娜 | 你爸爸有车吗? | Nǐ bàba yǒu chē ma? | Does your dad have a car?
+力波 | 有,他的车很大。他工作很忙,常常不在家。 | Yǒu, tā de chē hěn dà. Tā gōngzuò hěn máng, chángcháng bú zài jiā. | Yes, his car is big. He's busy at work and often not home.
+林娜 | 那谁在家呢? | Nà shéi zài jiā ne? | Then who is home?
+力波 | 贝贝!贝贝是我家的狗,很小,很可爱。我爱贝贝! | Bèibei! Bèibei shì wǒ jiā de gǒu, hěn xiǎo, hěn kěài. Wǒ ài Bèibei! | Beibei! Beibei is our dog, small and cute. I love Beibei!
+林娜 | 我喜欢狗!你有贝贝的照片吗? | Wǒ xǐhuan gǒu! Nǐ yǒu Bèibei de zhàopiàn ma? | I like dogs! Do you have a photo of Beibei?
+力波 | 当然有!看,这是贝贝。 | Dāngrán yǒu! Kàn, zhè shì Bèibei. | Of course! Look, this is Beibei.
+林娜 | 你的汉语真好!你学习汉语几年了? | Nǐ de Hànyǔ zhēn hǎo! Nǐ xuéxí Hànyǔ jǐ nián le? | Your Chinese is really good! How many years have you studied it?
+力波 | 我学习了一年汉语。两年前,我去了中国。 | Wǒ xuéxí le yì nián Hànyǔ. Liǎng nián qián, wǒ qù le Zhōngguó. | I've studied it for one year. Two years ago, I went to China.
+[四 · 宿舍,很晚了]
+旁白 | 现在很晚了。力波和林娜去宿舍。 | Xiànzài hěn wǎn le. Lìbō hé Lín Nà qù sùshè. | It's late now. Libo and Lin Na go to the dorm.
+林娜 | 你的宿舍在哪儿? | Nǐ de sùshè zài nǎr? | Where is your dorm?
+力波 | 在二层,二零四号。你要去看一下吗? | Zài èr céng, èr líng sì hào. Nǐ yào qù kàn yíxià ma? | 2nd floor, room 204. Do you want to go and have a look?
+林娜 | 可以吗? | Kěyǐ ma? | Is that okay?
+力波 | 行! | Xíng! | Sure!
 马大为 | 你们……啊!抱歉!我在这儿! | Nǐmen... a! Bàoqiàn! Wǒ zài zhèr! | You two... ah! Sorry! I'm right here!
 力波 | 马大为!你在宿舍啊? | Mǎ Dàwéi! Nǐ zài sùshè a? | Ma Dawei! You're in the dorm?
-马大为 | 对不起!恐怕你们要……我去游泳。 | Duìbuqǐ! Kǒngpà nǐmen yào... wǒ qù yóuyǒng. | Sorry! I'm afraid you want... I'll go swimming.
+林娜 | 他真高! | Tā zhēn gāo! | He's so tall!
+马大为 | 是!请问,五十六加十二是多少? | Shì! Qǐngwèn, wǔshíliù jiā shí'èr shì duōshao? | Yes! May I ask, what is 56 plus 12?
+力波 | 五十六加十二是六十八。 | Wǔshíliù jiā shí'èr shì liùshíbā. | 56 plus 12 is 68.
+林娜 | 七十八减二十一是多少? | Qīshíbā jiǎn èrshíyī shì duōshao? | What is 78 minus 21?
+马大为 | 五十七。六乘七呢? | Wǔshíqī. Liù chéng qī ne? | 57. And 6 times 7?
+力波 | 四十二。九十九加一是多少? | Sìshí'èr. Jiǔshíjiǔ jiā yī shì duōshao? | 42. What is 99 plus 1?
+林娜 | 一百! | Yìbǎi! | 100!
+力波 | 一百零一加一百一十呢? | Yìbǎi líng yī jiā yìbǎi yìshí ne? | And 101 plus 110?
+马大为 | 二百一十一!谢谢你们! | Èrbǎi yìshí yī! Xièxie nǐmen! | 211! Thank you both!
+林娜 | 不用谢!我们三个人真有意思。 | Bú yòng xiè! Wǒmen sān gè rén zhēn yǒuyìsi. | No need to thank us! The three of us are fun.
+马大为 | 恐怕我要去游泳了。 | Kǒngpà wǒ yào qù yóuyǒng le. | I'm afraid I have to go swimming.
 林娜 | 现在很晚了,游泳? | Xiànzài hěn wǎn le, yóuyǒng? | It's late now, swimming?
 马大为 | 那我去打球!再见! | Nà wǒ qù dǎqiú! Zàijiàn! | Then I'll go play ball! Bye!
-力波 | 没关系!再见! | Méi guānxi! Zàijiàn! | No problem! Bye!
-林娜 | 马大为很有意思!咖啡呢? | Mǎ Dàwéi hěn yǒuyìsi! Kāfēi ne? | Ma Dawei is funny! Where's the coffee?
-力波 | 对不起……我没有咖啡。 | Duìbuqǐ... wǒ méiyǒu kāfēi. | Sorry... I don't have coffee.
+力波 | 再见! | Zàijiàn! | Bye!
+林娜 | 咖啡呢? | Kāfēi ne? | Where's the coffee?
+力波 | 对不起……恐怕我没有咖啡。 | Duìbuqǐ... kǒngpà wǒ méiyǒu kāfēi. | Sorry... I'm afraid I don't have any coffee.
 林娜 | 啊?你太有意思了! | A? Nǐ tài yǒuyìsi le! | Huh? You're so funny!
 力波 | 林娜,你……我……你是我的…… | Lín Nà, nǐ... wǒ... nǐ shì wǒ de... | Lin Na, you... I... you are my...
 林娜 | 你说什么? | Nǐ shuō shénme? | What are you saying?
@@ -122,6 +159,9 @@ body.tc .t1{color:hsl(212 62% var(--tl))}body.tc .t2{color:hsl(140 52% var(--tl)
 你是哪国人?我是 ___ 人。 | 中国 · 英国 · 加拿大 · 美国 · 法国 · 德国 · 俄罗斯 · 日本
 我在 ___ 学习 ___。 | 语言学院 · 中文系 · 外语系 ‖ 汉语 · 中文 · 外语 · 普通话
 我选修 ___。 | 美术 · 文学 · 物理 · 化学 · 数学 · 音乐 · 历史 · 哲学 · 经济
+我家有 ___ 口人。 | 三 · 四 · 五 · 六 · 八
+五十六 ___ 十二是多少? | 加 · 减 · 乘
+我家有 ___。 | 爷爷 · 奶奶 · 外公 · 外婆 · 姐姐 · 妹妹 · 孩子 · 狗
 太 ___ 了! | 忙 · 高 · 晚 · 好 · 有意思 · 高兴
 ___ 天气怎么样? | 昨天 · 今天 · 明天
 我有 ___,没有 ___。 | 咖啡 · 名片 · 时间 · 哥哥 · 弟弟 · 男朋友
@@ -162,16 +202,17 @@ function tonify(s){var f=document.createDocumentFragment(),last=0,m;SYL.lastInde
 /* build page */
 var raw=$('#story').textContent.split('\n'),m=$('#m'),sec=null,inDrills=false;
 var h1=el('h1','zh','林娜和丁力波');m.appendChild(h1);m.appendChild(el('p','sub','Lín Nà hé Dīng Lìbō · tap a line to show pinyin and meaning'));
+var box=m;
 raw.forEach(function(ln){
   ln=ln.trim();if(!ln)return;
-  if(ln==='@@'){inDrills=true;m.appendChild(el('h2',null,'句型替换 · PATTERN DRILLS'));return}
+  if(ln==='@@'){inDrills=true;m.appendChild(el('h2',null,'句型替换 · PATTERN DRILLS'));box=el('section','ch');m.appendChild(box);return}
   var h=ln.match(/^\[(.+)\]$/);
-  if(h){m.appendChild(el('h2',null,h[1]));return}
+  if(h){m.appendChild(el('h2',null,h[1]));box=el('section','ch');m.appendChild(box);return}
   var c=ln.split('|').map(function(x){return x.trim()});
   if(inDrills){
     var d=el('div','d'),p=el('div','p zh',c[0]),w=el('div','w zh');
     (c[1]||'').split(/\s*([·‖])\s*/).forEach(function(x){if(x==='·'||x==='‖'){w.appendChild(el('s',null,x))}else if(x){w.appendChild(document.createTextNode(x))}});
-    d.appendChild(p);d.appendChild(w);m.appendChild(d);return}
+    d.appendChild(p);d.appendChild(w);box.appendChild(d);return}
   if(c.length<4)return;
   var b=el('button','l');b.type='button';b.setAttribute('aria-expanded','false');
   b.appendChild(el('span','who',c[0]));
@@ -181,7 +222,7 @@ raw.forEach(function(ln){
   b.addEventListener('click',function(){
     if(String(getSelection()))return; /* let people select text without toggling */
     b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')==='true'?'false':'true')});
-  m.appendChild(b);
+  box.appendChild(b);
 });
 
 /* show all */

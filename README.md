@@ -22,7 +22,7 @@ Pinyin and meaning hide again after 4 seconds.
 
 ## Story
 
-**Story** in the top bar opens a short dialogue. Each line is big; tap it to show pinyin and meaning, tap again to hide.
+**Story** in the top bar opens one continuous story in four chapters that uses every word in the list (check with a quick search when you add words, then add a line for them). Each line is big; tap it to show pinyin and meaning, tap again to hide.
 To edit or add lines, change the block at the top of `story.html`:
 
 ```
